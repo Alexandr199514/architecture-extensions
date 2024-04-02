@@ -1,5 +1,6 @@
 package io.github.debuggyteam.architecture_extensions.blocks;
 
+import com.mojang.serialization.MapCodec;
 import io.github.debuggyteam.architecture_extensions.api.BlockType.TypedGroupedBlock;
 import net.minecraft.block.AbstractLichenBlock;
 import net.minecraft.block.Block;
@@ -65,7 +66,12 @@ public class FacadeBlock extends AbstractLichenBlock implements TypedGrouped {
 
 		return state;
 	}
-
+	
+	@Override
+	protected MapCodec<? extends AbstractLichenBlock> getCodec() {
+		return null;
+	}
+	
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		super.appendProperties(builder);

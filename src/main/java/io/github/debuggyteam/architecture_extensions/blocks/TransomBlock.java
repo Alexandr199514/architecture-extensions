@@ -1,5 +1,6 @@
 package io.github.debuggyteam.architecture_extensions.blocks;
 
+import com.mojang.serialization.MapCodec;
 import io.github.debuggyteam.architecture_extensions.api.BlockType.TypedGroupedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -72,5 +73,10 @@ public class TransomBlock extends HorizontalFacingBlock implements TypedGrouped 
 	@Override
 	public MutableText getName() {
 		return getServerTranslation();
+	}
+	
+	@Override
+	protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
+		return null;
 	}
 }

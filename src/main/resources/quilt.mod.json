@@ -32,7 +32,7 @@
 		"depends": [
 			{
 				"id": "quilt_loader",
-				"versions": ">=0.19.0"
+				"versions": ">=0.24.0"
 			},
 			{
 				"id": "quilted_fabric_api",
@@ -40,15 +40,15 @@
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.20 <1.21"
+				"versions": ">=1.20.4"
 			},
 			{
 				"id": "staticdata",
-				"versions": ">=1.0.1+1.20"
+				"versions": ">=1.1.0+1.20.4"
 			},
 			{
 				"id": "suspicious_shapes",
-				"versions": ">=1.0.4+1.20.1"
+				"versions": ">=1.0.5+1.20.4"
 			}
 		]
 	},

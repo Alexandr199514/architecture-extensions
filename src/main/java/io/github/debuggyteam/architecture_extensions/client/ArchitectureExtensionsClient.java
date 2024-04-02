@@ -10,9 +10,9 @@ import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
-import org.quiltmc.qsl.resource.loader.api.ResourcePackRegistrationContext;
+import org.quiltmc.qsl.resource.loader.api.PackRegistrationContext;
 
-public class ArchitectureExtensionsClient implements ClientModInitializer, ResourcePackRegistrationContext.Callback {
+public class ArchitectureExtensionsClient implements ClientModInitializer, PackRegistrationContext.Callback {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
 		DataGeneration.BLOCKS.forEach(block -> {
@@ -25,11 +25,11 @@ public class ArchitectureExtensionsClient implements ClientModInitializer, Resou
 			}
 		});
 
-		ResourceLoader.get(ResourceType.CLIENT_RESOURCES).getRegisterDefaultResourcePackEvent().register(this);
+		ResourceLoader.get(ResourceType.CLIENT_RESOURCES).getRegisterDefaultPackEvent().register(this);
 	}
 
 	@Override
-	public void onRegisterPack(@NotNull ResourcePackRegistrationContext context) {
+	public void onRegisterPack(@NotNull PackRegistrationContext context) {
 		DataGeneration.generate(ResourceType.CLIENT_RESOURCES);
 		context.addResourcePack(ArchitectureExtensions.RESOURCE_PACK);
 	}

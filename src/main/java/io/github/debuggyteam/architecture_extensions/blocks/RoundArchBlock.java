@@ -1,5 +1,6 @@
 package io.github.debuggyteam.architecture_extensions.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -83,5 +84,10 @@ public class RoundArchBlock extends HorizontalFacingBlock implements TypedGroupe
 	@Override
 	public MutableText getName() {
 		return getServerTranslation();
+	}
+	
+	@Override
+	protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
+		return null;
 	}
 }

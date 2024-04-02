@@ -24,9 +24,9 @@ import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.loader.api.entrypoint.EntrypointContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.quiltmc.qsl.resource.loader.api.InMemoryResourcePack;
+import org.quiltmc.qsl.resource.loader.api.InMemoryPack;
 import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
-import org.quiltmc.qsl.resource.loader.api.ResourcePackRegistrationContext;
+import org.quiltmc.qsl.resource.loader.api.PackRegistrationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ import com.google.gson.GsonBuilder;
 import gay.debuggy.staticdata.api.StaticData;
 import gay.debuggy.staticdata.api.StaticDataItem;
 
-public class ArchitectureExtensions implements ModInitializer, ResourcePackRegistrationContext.Callback {
+public class ArchitectureExtensions implements ModInitializer, PackRegistrationContext.Callback {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Architecture Extensions");
 
 	// This should probably be fine being public and mutable
@@ -48,7 +48,7 @@ public class ArchitectureExtensions implements ModInitializer, ResourcePackRegis
 	public static final BlockCreationCallback CALLBACK_ADD_TO_ITEM_GROUP = (group, blockType, baseBlock, derivedBlock) ->
 		ItemGroupUtil.pull(ArchitectureExtensions.ITEM_GROUP, blockType, baseBlock, derivedBlock.asItem());
 
-	public static final InMemoryResourcePack RESOURCE_PACK = new InMemoryResourcePack.Named("Architecture Extensions");
+	public static final InMemoryPack RESOURCE_PACK = new InMemoryPack.Named("Architecture Extensions");
 
 	@Override
 	public void onInitialize(ModContainer mod) {
@@ -101,11 +101,11 @@ public class ArchitectureExtensions implements ModInitializer, ResourcePackRegis
 		
 		ItemGroupUtil.push();
 
-		ResourceLoader.get(ResourceType.SERVER_DATA).getRegisterDefaultResourcePackEvent().register(this);
+		ResourceLoader.get(ResourceType.SERVER_DATA).getRegisterDefaultPackEvent().register(this);
 	}
 	
 	@Override
-	public void onRegisterPack(@NotNull ResourcePackRegistrationContext context) {
+	public void onRegisterPack(@NotNull PackRegistrationContext context) {
 		DataGeneration.generate(ResourceType.SERVER_DATA);
 		context.addResourcePack(RESOURCE_PACK);
 	}
