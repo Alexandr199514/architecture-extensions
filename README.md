@@ -1,4 +1,12 @@
-<a href="https://debuggy.gay/discord"><img src="https://cdn.jsdelivr.net/gh/intergrav/devins-badges/assets/cozy/social/discord-plural_vector.svg" alt="Join Debuggycord on Discord!" height=64></a> <a href="https://modrinth.com/mod/arch-ex"><img src="https://cdn.jsdelivr.net/gh/intergrav/devins-badges/assets/cozy/available/modrinth_vector.svg" alt="Download on Modrinth." height=64></a> <a href="https://github.com/DebuggyTeam/architecture-extensions/wiki"><img alt="Read the Architecture Extensions documentation." height=64 src="https://cdn.jsdelivr.net/gh/intergrav/devins-badges/assets/cozy/documentation/generic_vector.svg"></a>
+## 4.0 Goals
+- [ ] Use Debuggycore datagen when that's a thing
+- [ ] Change modid to `arch_ex` (?)
+- [ ] Migrate over to Quilt Static Resources API when its a thing
+- [ ] Use other Quilt APIs when appropriate (ex: Recipe API)
+- [ ] Figure out the creative tab situation because currently, its a mess
+- [ ] Redo block groupings
+- [ ] Make rod blocks better lol
+
 
 ## About Architecture Extensions
 The mod idea for Architecture Extensions is technically based off the old [ArchitectureCraft mod from MC 1.8-1.10](https://www.curseforge.com/minecraft/mc-mods/architecturecraft). The major differences are that the added blocks are not "super detailed" like in the original AC mod and there are blocks that are not in the original mod either.
